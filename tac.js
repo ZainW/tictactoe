@@ -42,50 +42,50 @@ $(document).on("ready", function(){
 		ctx.stroke();
 	}
 	drawgrid();
-	function whichSquare(x,y){
-		if (x < 250) {
-			if (y < 250){
+	// function whichSquare(x,y){
+	// 	if (x < 250) {
+	// 		if (y < 250){
 				
-			}
-			else if (y < 500){
+	// 		}
+	// 		else if (y < 500){
 
-			}
-			else if (y < 750){
+	// 		}
+	// 		else if (y < 750){
 
-			}
-		}
-		else if (x < 500){
+	// 		}
+	// 	}
+	// 	else if (x < 500){
 
-		}
-		if (x < 500) {
-			if (y < 250){
+	// 	}
+	// 	if (x < 500) {
+	// 		if (y < 250){
 				
-			}
-			else if (y < 500){
+	// 		}
+	// 		else if (y < 500){
 
-			}
-			else if (y < 750){
+	// 		}
+	// 		else if (y < 750){
 
-			}
-		}
-		else if (x < 500){
+	// 		}
+	// 	}
+	// 	else if (x < 500){
 			
-		}
-		if (x < 750) {
-			if (y < 250){
+	// 	}
+	// 	if (x < 750) {
+	// 		if (y < 250){
 				
-			}
-			else if (y < 500){
+	// 		}
+	// 		else if (y < 500){
 
-			}
-			else if (y < 750){
+	// 		}
+	// 		else if (y < 750){
 
-			}
-		}
-		else if (x < 500){
+	// 		}
+	// 	}
+	// 	else if (x < 500){
 			
-		}
-	}
+	// 	}
+	// }
 	function whatSquare(x,y){
 		var square=[];
 		for(var xcom = 250; xcom <= 750; xcom += 250){
