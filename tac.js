@@ -9,8 +9,12 @@ var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var mouseX, mouseY;
 var player1 = true;
-var player1Spots = [];
-var player2Spots = [];
+// var player1Spots = [];
+// var player2Spots = [];
+// var wins = [7, 56, 448, 73, 146, 292, 273, 84]
+// var winarr = [1,2,4,8,16,32,64,256];
+var board = [[],[],[]]; 
+
 // c.addEventListener("mouseUp", mouseUp, false);
 $(document).on("ready", function(){
 	function drawgrid(){
@@ -41,7 +45,7 @@ $(document).on("ready", function(){
 		ctx.arc(x,y,50,0,Math.PI * 2)
 		ctx.stroke();
 	}
-	drawgrid();
+	
 	// function whichSquare(x,y){
 	// 	if (x < 250) {
 	// 		if (y < 250){
@@ -97,6 +101,25 @@ $(document).on("ready", function(){
 			}
 		}
 	}
+	function genBoard(){
+		for(var i = 0; i < 3; i++){
+
+		}
+	}
+	function isWinnertest(){
+		for (var i = 0; i < wins.length; i += 1) {
+        if ((wins[i] & score) === wins[i]) {
+            return true;
+        }
+    }
+    return false;
+	}
+	// function isWinner(){
+	// 	for(var i = 0; i<3;i++){
+
+	// 	}
+	// }
+
 	// 
 	$("#myCanvas").mouseup(function(e){
 		mouseX =  e.offsetX;
@@ -105,25 +128,26 @@ $(document).on("ready", function(){
 		var x = ((drawsquare[0] -1) * 250) + 125;
 		var y = ((drawsquare[1]-1) * 250) + 125;
 		if (player1){
-			player1Spots.push(drawsquare);
+      console.log(drawsquare);
+      console.log(drawsquare[0]);
+      console.log(drawsquare[1]);
+
+			board[drawsquare[0]-1][drawsquare[1]-1] = 'X';
+			//player1Spots.push(drawsquare);
 			drawX(x,y);
 		}
 		else{
-			player2Spots.push(drawsquare);
+			board[drawsquare[0]-1] [drawsquare[1]-1] = 'O';
+			//player2Spots.push(drawsquare);
 			drawO(x,y);
 		}
 		
 		// console.log(player1Spots);
 		// console.log(player2Spots);
 		player1 = !player1;
+		console.log(board);
 	});
-	// //test
-	// drawX(100,100);
-
-
-
-
-
-
+	// functions
+	drawgrid();
 });
 
