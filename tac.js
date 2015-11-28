@@ -1,21 +1,9 @@
-// var player1 = true;
-// if (player1){
-// 	//place X
-// }
-// else {
-// 	//place O
-// }
+
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var mouseX, mouseY;
 var player1 = true;
-// var player1Spots = [];
-// var player2Spots = [];
-// var wins = [7, 56, 448, 73, 146, 292, 273, 84]
-// var winarr = [1,2,4,8,16,32,64,256];
-var board = [[],[],[]]; 
-
-// c.addEventListener("mouseUp", mouseUp, false);
+var board = [[],[],[]];
 $(document).on("ready", function(){
 	function drawgrid(){
 		ctx.beginPath();
@@ -32,64 +20,19 @@ $(document).on("ready", function(){
 	function drawX(x,y){
 		ctx.beginPath();
     
-    ctx.moveTo(x - 50, y - 50);
-    ctx.lineTo(x + 50, y + 50);
-    ctx.stroke();
+	    ctx.moveTo(x - 50, y - 50);
+	    ctx.lineTo(x + 50, y + 50);
+	    ctx.stroke();
 
-    ctx.moveTo(x + 50, y - 50);
-    ctx.lineTo(x - 50, y + 50);
-    ctx.stroke();
+	    ctx.moveTo(x + 50, y - 50);
+	    ctx.lineTo(x - 50, y + 50);
+	    ctx.stroke();
 	}
 	function drawO(x,y){
 		ctx.beginPath();
 		ctx.arc(x,y,50,0,Math.PI * 2)
 		ctx.stroke();
 	}
-	
-	// function whichSquare(x,y){
-	// 	if (x < 250) {
-	// 		if (y < 250){
-				
-	// 		}
-	// 		else if (y < 500){
-
-	// 		}
-	// 		else if (y < 750){
-
-	// 		}
-	// 	}
-	// 	else if (x < 500){
-
-	// 	}
-	// 	if (x < 500) {
-	// 		if (y < 250){
-				
-	// 		}
-	// 		else if (y < 500){
-
-	// 		}
-	// 		else if (y < 750){
-
-	// 		}
-	// 	}
-	// 	else if (x < 500){
-			
-	// 	}
-	// 	if (x < 750) {
-	// 		if (y < 250){
-				
-	// 		}
-	// 		else if (y < 500){
-
-	// 		}
-	// 		else if (y < 750){
-
-	// 		}
-	// 	}
-	// 	else if (x < 500){
-			
-	// 	}
-	// }
 	function whatSquare(x,y){
 		var square=[];
 		for(var xcom = 250; xcom <= 750; xcom += 250){
@@ -101,11 +44,6 @@ $(document).on("ready", function(){
 			}
 		}
 	}
-	function genBoard(){
-		for(var i = 0; i < 3; i++){
-
-		}
-	}
 	function isWinnertest(){
 		for (var i = 0; i < wins.length; i += 1) {
         if ((wins[i] & score) === wins[i]) {
@@ -114,38 +52,62 @@ $(document).on("ready", function(){
     }
     return false;
 	}
-	// function isWinner(){
-	// 	for(var i = 0; i<3;i++){
-
-	// 	}
-	// }
-
-	// 
+	function isWinnerX(){
+		for(var i = 0;i < 3; i++){
+			if(board[i][0] == 'X' && board[i][1] == 'X' &&  board[i][2]){
+				return true;
+			}
+			if(board[0][i] == 'X' && board[1][i] == 'X' &&  board[2][i]){
+				return true;
+			}
+		}
+		if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2]){
+			return true;
+		}
+		if (board[2][0] == 'X' && board[1][1] == 'X' && board[0][2]){
+			return true;
+		}
+		return false;
+	}
+	function isWinnerO(){
+		for(var i = 0;i < 3; i++){
+			if(board[i][0] == 'O' && board[i][1] == 'O' &&  board[i][2]){
+				return true;
+			}
+			if(board[0][i] == 'O' && board[1][i] == 'O' &&  board[2][i]){
+				return true;
+			}
+		}
+		if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2]){
+			return true;
+		}
+		if (board[2][0] == 'O' && board[1][1] == 'O' && board[0][2]){
+			return true;
+		}
+		return false;
+	}
 	$("#myCanvas").mouseup(function(e){
 		mouseX =  e.offsetX;
 		mouseY = e.offsetY ;
 		var drawsquare = whatSquare(mouseX,mouseY);
-		var x = ((drawsquare[0] -1) * 250) + 125;
-		var y = ((drawsquare[1]-1) * 250) + 125;
+		var x = ((drawsquare[0] -1 ) * 250) + 125;
+		var y = ((drawsquare[1] -1 ) * 250) + 125;
 		if (player1){
-      console.log(drawsquare);
-      console.log(drawsquare[0]);
-      console.log(drawsquare[1]);
-
 			board[drawsquare[0]-1][drawsquare[1]-1] = 'X';
-			//player1Spots.push(drawsquare);
 			drawX(x,y);
+			if(isWinnerX){
+
+			}
 		}
 		else{
 			board[drawsquare[0]-1] [drawsquare[1]-1] = 'O';
-			//player2Spots.push(drawsquare);
 			drawO(x,y);
+			if (isWinnerO) {
+				
+			};
 		}
-		
-		// console.log(player1Spots);
-		// console.log(player2Spots);
+
 		player1 = !player1;
-		console.log(board);
 	});
 	// functions
 	drawgrid();
