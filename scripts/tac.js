@@ -103,15 +103,15 @@ $(document).on("ready", function(){
 			drawX(x,y);
 			if(isWinnerX() == true){
 				$("#win").fadeIn(3000);
-      			$("#win h3").text("X wins! Refresh to play again.")
+      	$("#win h3").text("X wins! Refresh to play again.")
 			}
 		}
 		else {
 			board[drawsquare[0]-1] [drawsquare[1]-1] = 'O';
 			drawO(x,y);
 			if (isWinnerO() == true) {
-		        $("#win").fadeIn(3000);
-		        $("#win h3").text("O wins! Refresh to play again.");
+        $("#win").fadeIn(3000);
+        $("#win h3").text("O wins! Refresh to play again.");
 			};
 		}
     
