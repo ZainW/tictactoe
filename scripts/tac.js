@@ -1,16 +1,3 @@
-//sweet alert load
-// $.getScript("bower_components/sweetalert/dist/sweetalert.min.js", function(){
-
-//   //alert("Script loaded but not necessarily executed.");
-//   console.log("fndsjlfds");
-
-// });
-
-
-
-
-
-
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var mouseX, mouseY;
@@ -22,8 +9,6 @@ var img2 = new Image();
 img1.src = 'icons/vader.png'
 img2.src = 'icons/luke.png'
 
-
-var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 $(document).on("ready", function(){
   var clickcount = 0;
   alertify.alert("Message");
@@ -41,58 +26,6 @@ $(document).on("ready", function(){
 		ctx.lineTo(500,750);
 		ctx.stroke();
 	}
-	function drawX(x,y){
-		ctx.beginPath();
-    
-	    ctx.moveTo(x - 50, y - 50);
-	    ctx.lineTo(x + 50, y + 50);
-	    ctx.stroke();
-
-	    ctx.moveTo(x + 50, y - 50);
-	    ctx.lineTo(x - 50, y + 50);
-	    ctx.stroke();
-	}
-  var circleDefaults = {
-        circlePos: {
-            x: 338,
-            y: 130
-        },
-        radius: 120,
-        counterClockwise: false,
-        startAngle: Math.PI / 2,
-        endAngle: Math.PI * 2,
-        currentPercent: 0,
-        endPercent: 100
-
-    }
-	function drawO(x,y, current){
-    // //internet
-    
-
-    //         ctx.beginPath();
-    //         ctx.arc(x, y, circleDefaults.radius, -(circleDefaults.startAngle), ((circleDefaults.endAngle) * current) - circleDefaults.startAngle, circleDefaults.counterClockwise);
-    //         ctx.lineWidth = 1.0;
-
-    //         ctx.strokeStyle = "#000"
-    //         ctx.stroke();
-    //         ctx.closePath();
-
-    //         circleDefaults.currentPercent++;
-    //         if (circleDefaults.currentPercent < circleDefaults.endPercent) {
-    //             requestAnimationFrame(function () {
-    //                 drawO(circleDefaults.currentPercent / 100);
-    //             });
-    //         }
-    //         // else{
-    //         //     AnimateLine();
-    //         // }
-
-
-    // //mine
-		ctx.beginPath();
-		ctx.arc(x,y,50,0,Math.PI * 2)
-		ctx.stroke();
-	}
 	function whatSquare(x,y){
 		var square=[];
 		for(var xcom = 250; xcom <= 750; xcom += 250){
@@ -103,14 +36,6 @@ $(document).on("ready", function(){
 				}
 			}
 		}
-	}
-	function isWinnertest(){
-		for (var i = 0; i < wins.length; i += 1) {
-        if ((wins[i] & score) === wins[i]) {
-            return true;
-        }
-    }
-    return false;
 	}
 	function isWinnerX(){
 		for(var i = 0;i < 3; i++){
@@ -151,8 +76,6 @@ $(document).on("ready", function(){
 		mouseY = e.offsetY ;
     
 		var drawsquare = whatSquare(mouseX,mouseY);
-		// var x = ((drawsquare[0] -1 ) * 250) + 125;
-		// var y = ((drawsquare[1] -1 ) * 250) + 125;
     var x = ((drawsquare[0] -1 ) * 250);
     var y = ((drawsquare[1] -1 ) * 250);
     if (clickcount == 9){
@@ -164,19 +87,14 @@ $(document).on("ready", function(){
       
         ctx.drawImage(img1,x,y,249,249);
       
-			//drawX(x,y);
 			if(isWinnerX() == true){
-				$("#win").fadeIn(3000);
-      	$("#win h3").text("Vader wins! Refresh to play again.")
 			}
 		}
 		else {
 			board[drawsquare[0]-1] [drawsquare[1]-1] = 'O';
-			//drawO(x,y);
       ctx.drawImage(img2,x,y,249,249);
 			if (isWinnerO() == true) {
-        $("#win").fadeIn(3000);
-        $("#win h3").text("Luke wins! Refresh to play again.");
+        
 			};
 		}
     
