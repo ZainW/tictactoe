@@ -77,10 +77,7 @@ $(document).on("ready", function(){
 		var drawsquare = whatSquare(mouseX,mouseY);
     var x = ((drawsquare[0] -1 ) * 250);
     var y = ((drawsquare[1] -1 ) * 250);
-    if (clickcount == 9){
-      $("#win").fadeIn(3000);
-      $("#win h3").text("It's a Draw :s")
-    }
+
 		if (player1 == true){
 			board[drawsquare[0]-1][drawsquare[1]-1] = 'X';
       
@@ -97,7 +94,11 @@ $(document).on("ready", function(){
         alertify.alert("Luke has killed his father :(, refresh to play again");
 			};
 		}
-    
+    clickcount++;
+    if (clickcount == 9 && isWinnerX() == false && isWinnerO() == false){
+      alertify.alert("Luke and Vader are equally matched, refresh to try again!");
+      
+    }
 
 		player1 = !player1;
 	});
