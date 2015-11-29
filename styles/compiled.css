@@ -9,6 +9,22 @@
   text-align: center; }
 
 #myCanvas {
-  display: inline; }
+  display: inline;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-top: 50px; }
+
+body {
+  background-image: url(background.jpg); }
+
+#title-container {
+  border: 10px solid white;
+  text-align: center;
+  padding: 0.5em;
+  float: none;
+  margin: auto;
+  width: 35%; }
+
+#title-box {
+  text-align: center; }
 
 /*# sourceMappingURL=compiled.css.map */
