@@ -1,3 +1,15 @@
+//sweet alert load
+// $.getScript("bower_components/sweetalert/dist/sweetalert.min.js", function(){
+
+//   //alert("Script loaded but not necessarily executed.");
+//   console.log("fndsjlfds");
+
+// });
+
+
+
+
+
 
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
@@ -14,7 +26,7 @@ img2.src = 'icons/luke.png'
 var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 $(document).on("ready", function(){
   var clickcount = 0;
-  sweetAlert("Here's a message!");
+  //swal("Here's a message!");
 	function drawgrid(){
 		ctx.beginPath();
     ctx.lineWidth = 2;
