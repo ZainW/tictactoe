@@ -26,7 +26,7 @@ img2.src = 'icons/luke.png'
 var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 $(document).on("ready", function(){
   var clickcount = 0;
-  //swal("Here's a message!");
+  alertify.alert("Message");
 	function drawgrid(){
 		ctx.beginPath();
     ctx.lineWidth = 2;
