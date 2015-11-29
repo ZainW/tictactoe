@@ -14,8 +14,11 @@ img2.src = 'icons/luke.png'
 var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 $(document).on("ready", function(){
   var clickcount = 0;
+  sweetAlert("Here's a message!");
 	function drawgrid(){
 		ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "white";
 		ctx.moveTo(0,250);
 		ctx.lineTo(750,250);
 		ctx.moveTo(0,500);
@@ -147,7 +150,7 @@ $(document).on("ready", function(){
 		if (player1 == true){
 			board[drawsquare[0]-1][drawsquare[1]-1] = 'X';
       
-        ctx.drawImage(img1,x,y,250,250);
+        ctx.drawImage(img1,x,y,249,249);
       
 			//drawX(x,y);
 			if(isWinnerX() == true){
@@ -158,7 +161,7 @@ $(document).on("ready", function(){
 		else {
 			board[drawsquare[0]-1] [drawsquare[1]-1] = 'O';
 			//drawO(x,y);
-      ctx.drawImage(img2,x,y,250,250);
+      ctx.drawImage(img2,x,y,249,249);
 			if (isWinnerO() == true) {
         $("#win").fadeIn(3000);
         $("#win h3").text("Luke wins! Refresh to play again.");

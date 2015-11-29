@@ -4,6 +4,8 @@
 	text-align: center;
 	font-size: 4em;
 	margin-bottom: 0px;
+	color: white;
+	display: inline-block;
 }
 #title-under{
 	font-family: 'STARWARS';
@@ -11,4 +13,6 @@
 	font-size: 2em;
 	margin-top: 10px;
 	margin-bottom: 30px;
-}
+	color: white;
+	display: block;
+}	
