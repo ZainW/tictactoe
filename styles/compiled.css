@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis);
+#title-head {
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  font-size: 4em; }
+
+#canvas-container {
+  width: 100%;
+  text-align: center; }
+
+#myCanvas {
+  display: inline; }
+
+/*# sourceMappingURL=compiled.css.map */

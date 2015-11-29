@@ -55,34 +55,34 @@ $(document).on("ready", function(){
 	}
 	function isWinnerX(){
 		for(var i = 0;i < 3; i++){
-			if(board[i][0] == 'X' && board[i][1] == 'X' &&  board[i][2]){
+			if(board[i][0] == 'X' && board[i][1] == 'X' &&  board[i][2] == 'X'){
 				return true;
 			}
-			if(board[0][i] == 'X' && board[1][i] == 'X' &&  board[2][i]){
+			if(board[0][i] == 'X' && board[1][i] == 'X' &&  board[2][i] == 'X'){
 				return true;
 			}
 		}
-		if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2]){
+		if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X'){
 			return true;
 		}
-		if (board[2][0] == 'X' && board[1][1] == 'X' && board[0][2]){
+		if (board[2][0] == 'X' && board[1][1] == 'X' && board[0][2] == "X"){
 			return true;
 		}
 		return false;
   }
 	function isWinnerO(){
 		for(var i = 0;i < 3; i++){
-			if(board[i][0] == 'O' && board[i][1] == 'O' &&  board[i][2]){
+			if(board[i][0] == 'O' && board[i][1] == 'O' &&  board[i][2] == "O"){
 				return true;
 			}
-			if(board[0][i] == 'O' && board[1][i] == 'O' &&  board[2][i]){
+			if(board[0][i] == 'O' && board[1][i] == 'O' &&  board[2][i] == "O"){
 				return true;
 			}
 		}
-		if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2]){
+		if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O'){
 			return true;
 		}
-		if (board[2][0] == 'O' && board[1][1] == 'O' && board[0][2]){
+		if (board[2][0] == 'O' && board[1][1] == 'O' && board[0][2] == 'O'){
 			return true;
 		}
 		return false;
@@ -103,15 +103,15 @@ $(document).on("ready", function(){
 			drawX(x,y);
 			if(isWinnerX() == true){
 				$("#win").fadeIn(3000);
-      	$("#win h3").text("X wins! Refresh to play again.")
+      			$("#win h3").text("X wins! Refresh to play again.")
 			}
 		}
 		else {
 			board[drawsquare[0]-1] [drawsquare[1]-1] = 'O';
 			drawO(x,y);
-			if (isWinnerO == true) {
-        $("#win").fadeIn(3000);
-        $("#win h3").text("O wins! Refresh to play again.")
+			if (isWinnerO() == true) {
+		        $("#win").fadeIn(3000);
+		        $("#win h3").text("O wins! Refresh to play again.");
 			};
 		}
     
