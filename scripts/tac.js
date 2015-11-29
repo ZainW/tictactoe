@@ -11,7 +11,6 @@ img2.src = 'icons/luke.png'
 
 $(document).on("ready", function(){
   var clickcount = 0;
-  alertify.alert("Message");
 	function drawgrid(){
 		ctx.beginPath();
     ctx.lineWidth = 2;
@@ -88,13 +87,14 @@ $(document).on("ready", function(){
         ctx.drawImage(img1,x,y,249,249);
       
 			if(isWinnerX() == true){
+        alertify.alert("Vader defeated his own son :(, refresh to play again!");
 			}
 		}
 		else {
 			board[drawsquare[0]-1] [drawsquare[1]-1] = 'O';
       ctx.drawImage(img2,x,y,249,249);
 			if (isWinnerO() == true) {
-        
+        alertify.alert("Luke has killed his father :(, refresh to play again");
 			};
 		}
     
