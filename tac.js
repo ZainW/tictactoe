@@ -5,6 +5,7 @@ var mouseX, mouseY;
 var player1 = true;
 var board = [[],[],[]];
 $(document).on("ready", function(){
+  var clickcount = 0;
 	function drawgrid(){
 		ctx.beginPath();
 		ctx.moveTo(0,250);
@@ -68,7 +69,7 @@ $(document).on("ready", function(){
 			return true;
 		}
 		return false;
-	}
+  }
 	function isWinnerO(){
 		for(var i = 0;i < 3; i++){
 			if(board[i][0] == 'O' && board[i][1] == 'O' &&  board[i][2]){
@@ -89,23 +90,31 @@ $(document).on("ready", function(){
 	$("#myCanvas").mouseup(function(e){
 		mouseX =  e.offsetX;
 		mouseY = e.offsetY ;
+    
 		var drawsquare = whatSquare(mouseX,mouseY);
 		var x = ((drawsquare[0] -1 ) * 250) + 125;
 		var y = ((drawsquare[1] -1 ) * 250) + 125;
-		if (player1){
+    if (clickcount == 9){
+      $("#win").fadeIn(3000);
+      $("#win h3").text("It's a Draw :s")
+    }
+		if (player1 == true){
 			board[drawsquare[0]-1][drawsquare[1]-1] = 'X';
 			drawX(x,y);
-			if(isWinnerX){
-
+			if(isWinnerX() == true){
+				$("#win").fadeIn(3000);
+      	$("#win h3").text("X wins! Refresh to play again.")
 			}
 		}
-		else{
+		else {
 			board[drawsquare[0]-1] [drawsquare[1]-1] = 'O';
 			drawO(x,y);
-			if (isWinnerO) {
-				
+			if (isWinnerO == true) {
+        $("#win").fadeIn(3000);
+        $("#win h3").text("O wins! Refresh to play again.")
 			};
 		}
+    
 
 		player1 = !player1;
 	});
